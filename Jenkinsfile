@@ -1,11 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('Build') { 
-            
+        stage('Build') {
+            agent {
+                docker {
+                    image 'python:3-alpine'
+                }
+            }
             steps {
-                sh 'python -m py_compile index.py' 
-                stash(name: 'compiled-results', includes: 'index.py*') 
+                sh 'pip install --user -r requirements.txt'
+                sh 'python index.py'
+            
             }
         }
     }
