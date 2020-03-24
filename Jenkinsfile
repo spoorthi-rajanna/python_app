@@ -6,13 +6,13 @@ pipeline {
         stage('checkout') {
 
             steps {
-    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mibrahim2019/python.git']]])
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/spoorthi-rajanna/python_app.git']]])
             }
         }
         stage('Build') {
 
             steps {
-                sh 'python -m py_compile app.py config.py fabfile.py forms.py models.py'
+                sh 'python -m py_compile index.py'
             }
         }
           /* stage('Test') { 
@@ -31,7 +31,7 @@ pipeline {
           stage('Package') {
 
             steps {
-                sh 'pyinstaller --onefile app.py'
+                sh 'pyinstaller --onefile index.py'
             }
 
         } 
