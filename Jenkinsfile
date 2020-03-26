@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-               sh 'python -m pip install --user -r requirements.txt'
+               sh 'python3 -m pip install --user -r requirements.txt'
                 sh 'python index.py'
             
             }
