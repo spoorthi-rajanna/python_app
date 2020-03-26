@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-               
+               sh 'sudo pip install --user -r requirements.txt'
                 sh 'python index.py'
             
             }
