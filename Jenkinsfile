@@ -8,10 +8,10 @@ pipeline {
                 }
             }
             steps {
-                sh 'python -m pip install --upgrade pip'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
                sh 'pip install --user -r requirements.txt'
                 sh 'python index.py'
-            
+                }
             }
         }
     }
