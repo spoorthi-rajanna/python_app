@@ -13,6 +13,10 @@ pipeline {
                 sh 'python index.py'
                 }
             }
+            stage('test') {
+      steps {
+        sh 'python test.py'
+      }
         }
     }
 }
