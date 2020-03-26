@@ -8,7 +8,8 @@ pipeline {
                 }
             }
             steps {
-               sh 'pip install --user spoorthiraj1919 -r requirements.txt'
+                sh 'python -m pip install --upgrade pip'
+               sh 'pip install --user -r requirements.txt'
                 sh 'python index.py'
             
             }
